@@ -18,6 +18,7 @@ Now I'm in the process to create executables for different platforms as windows.
 # Installation 
 get the requirements
 > pip3 install -r requirements.txt
+
 Sometimes you need the package python3-tk to run it.
 
 Then run the gui
