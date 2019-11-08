@@ -23,3 +23,9 @@ Sometimes you need the package python3-tk to run it.
 
 Then run the gui
 > python3 gui.py
+
+# Screenshots
+
+![](imgs/initial_screen.png)
+
+![](imgs/results.png)
