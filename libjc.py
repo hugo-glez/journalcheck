@@ -62,7 +62,7 @@ def getinfo(query):
         #print(ii)
     except:
     # Nothing found, so no result.
-        t = "Nothing Found!"
+        t = "Nothing Found! for "+query
         im = ""
 
     return(t,im)
