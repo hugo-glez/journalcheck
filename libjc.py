@@ -5,7 +5,7 @@
 
 # License: 3-clause BSD, see https://opensource.org/licenses/BSD-3-Clause
 #
-""" 
+"""
 This script consult the scimago website to ask for ISSN or other keyword.
 ISSN works better because only one result is returned in the case it
 exists. Also it retrieves the image of the journal
@@ -36,9 +36,8 @@ def getinfo(query):
         The string that identified the journal or the text "Nothing Found!"
     im : data
         The data from the png image retrieved from the website, or empty.
-    
     """
-    p = req.get(SITE + query)
+    p = req.get(SITE + query, timeout=(10,20))
 
     soup = BeautifulSoup(p.text, "lxml")
 
@@ -48,7 +47,7 @@ def getinfo(query):
     try:
         # Get the link
         an = r[0].find_all('a')[0]
-        #print(N)
+        # print(N)
         # This is the text of the html part
         t = an.text
         # Find the link and extract the id
@@ -56,12 +55,12 @@ def getinfo(query):
         u = u[u.find('=') + 1:u.find('&')]
         ii = IMGURL + u
         # Obtain the png data of the image
-        ix = req.get(ii)
+        ix = req.get(ii, timeout=(10,20))
         im = ix.content
-        #print(ii)
-    except:
-    # Nothing found, so no result.
+        # print(ii)
+    except Exception as inst:
+        # Nothing found, so no result.
         t = "Nothing Found! for " + query
         im = ""
 
-    return(t,im)
+    return(t, im)
