@@ -1,4 +1,4 @@
 requests==2.32.2
-PySimpleGUI==4.5.0
+PySimpleGUI==4.70.1
 beautifulsoup4==4.8.1
 lxml
