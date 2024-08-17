@@ -47,14 +47,14 @@ def getinfo(query):
 
     try:
         # Get the link
-        aN = r[0].find_all('a')[0]
+        an = r[0].find_all('a')[0]
         #print(N)
         # This is the text of the html part
-        t = aN.text
-        # Find the link and extract the id 
-        u = aN.attrs['href']
+        t = an.text
+        # Find the link and extract the id
+        u = an.attrs['href']
         u = u[u.find('=') + 1:u.find('&')]
-        ii = IMGURL + u 
+        ii = IMGURL + u
         # Obtain the png data of the image
         ix = req.get(ii)
         im = ix.content
@@ -65,4 +65,3 @@ def getinfo(query):
         im = ""
 
     return(t,im)
-
