@@ -15,7 +15,6 @@ It can be used in command line or the gui interface.
 """
 
 import requests as req
-import sys
 from bs4 import BeautifulSoup
 
 BASE = "https://www.scimagojr.com/"
@@ -39,7 +38,7 @@ def getinfo(query):
         The data from the png image retrieved from the website, or empty.
     
     """
-    p = req.get(SITE+query)
+    p = req.get(SITE + query)
 
     soup = BeautifulSoup(p.text, "lxml")
 
@@ -48,21 +47,21 @@ def getinfo(query):
 
     try:
         # Get the link
-        N = r[0].find_all('a')[0]
+        aN = r[0].find_all('a')[0]
         #print(N)
         # This is the text of the html part
-        t = N.text
+        t = aN.text
         # Find the link and extract the id 
-        u = N.attrs['href']
-        u = u[u.find('=')+1:u.find('&')]
-        ii = IMGURL+u 
+        u = aN.attrs['href']
+        u = u[u.find('=') + 1:u.find('&')]
+        ii = IMGURL + u 
         # Obtain the png data of the image
         ix = req.get(ii)
         im = ix.content
         #print(ii)
     except:
     # Nothing found, so no result.
-        t = "Nothing Found! for "+query
+        t = "Nothing Found! for " + query
         im = ""
 
     return(t,im)
