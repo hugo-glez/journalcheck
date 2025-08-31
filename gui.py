@@ -16,13 +16,13 @@ import FreeSimpleGUI as sg
 import libjc
 
 # All the stuff inside your window.
-layout = [  [sg.Text('Look if a journal is in the SCIMAGO index, and the quartile')],
-            [sg.Text('ISSN of the journal'), sg.InputText()],
-            [sg.Button('Ok'), sg.Button('Cancel')],
-            [sg.Text(size=(40,3), key='tResult')],
-            [sg.Image(filename="",key='iResult')],
-            [sg.Text('Powered by SCIMAGO https://www.scimagojr.com')]
-            ]
+layout = [[sg.Text('Look if a journal is in the SCIMAGO index, and the quartile')],
+          [sg.Text('ISSN of the journal'), sg.InputText()],
+          [sg.Button('Ok'), sg.Button('Cancel')],
+          [sg.Text(size=(40, 3), key='tResult')],
+          [sg.Image(filename="", key='iResult')],
+          [sg.Text('Powered by SCIMAGO https://www.scimagojr.com')]
+          ]
 
 # Create the Window
 window = sg.Window('Journal Check', layout)
@@ -32,7 +32,7 @@ while True:
     event, values = window.read()
     if event in (None, 'Cancel'):   # if user closes window or clicks cancel
         break
-    (v,im) = libjc.getinfo(values[0])
+    (v, im) = libjc.getinfo(values[0])
     window['tResult'].update(v)
     window['iResult'].update(data=im)
 

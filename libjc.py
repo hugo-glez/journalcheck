@@ -37,7 +37,7 @@ def getinfo(query):
     im : data
         The data from the png image retrieved from the website, or empty.
     """
-    p = req.get(SITE + query, timeout=(10,20))
+    p = req.get(SITE + query, timeout=(10, 20))
 
     soup = BeautifulSoup(p.text, "lxml")
 
@@ -55,10 +55,10 @@ def getinfo(query):
         u = u[u.find('=') + 1:u.find('&')]
         ii = IMGURL + u
         # Obtain the png data of the image
-        ix = req.get(ii, timeout=(10,20))
+        ix = req.get(ii, timeout=(10, 20))
         im = ix.content
         # print(ii)
-    except Exception as inst:
+    except Exception:
         # Nothing found, so no result.
         t = "Nothing Found! for " + query
         im = ""
