@@ -7,16 +7,16 @@
 # License: 3-clause BSD, see https://opensource.org/licenses/BSD-3-Clause
 #
 """
-This is the gui interface for the project. It is based on a PySimpleGUI pattern
+This is the gui interface for the project. It is based on a FreeSimpleGUI pattern
 for a simple window. It uses libjc to retrieve the information.
 
 """
 
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 import libjc
 
 # All the stuff inside your window.
-layout = [  [sg.Text('Look if a journal is in the JCR index, and the quartile')],
+layout = [  [sg.Text('Look if a journal is in the SCIMAGO index, and the quartile')],
             [sg.Text('ISSN of the journal'), sg.InputText()],
             [sg.Button('Ok'), sg.Button('Cancel')],
             [sg.Text(size=(40,3), key='tResult')],
